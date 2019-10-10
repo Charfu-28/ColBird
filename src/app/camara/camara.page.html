@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+    <ion-title>Camara</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <div class="ion-text-left">
+        <ion-button (click)="TomarFoto()">Tomar foto</ion-button>    
+        <img *ngIf="image" [src]="image" alt="image">        
+    </div>
+
+</ion-content>

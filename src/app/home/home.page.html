@@ -1,14 +1,14 @@
 <ion-header>
   <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>
       ColBird
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-    <ion-button (click)="TomarFoto()">Tomar foto</ion-button>
-    <img *ngIf="image" [src]="image" alt="image">
-
-    <ion-button routerLink="/biblioteca" >Biblioteca</ion-button>
+<ion-content class="background">
+        
 </ion-content>
