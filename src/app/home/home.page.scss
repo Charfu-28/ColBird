@@ -1,3 +1,13 @@
+ion-toolbar.barra_superior{
+    --background: #99B83C;
+    --border-color: #A8B17F;
+    --border-style: solid;
+    --border-width: thin;
+    --color: white;
+    --min-height: min-content;
+    --opacity: 1;
+}    
+
 ion-content.background{
     --background: url('/assets/img/Inicio_ColBird.png') 0 0/100% 100%;
     background-repeat: no-repeat;
@@ -9,3 +19,4 @@ ion-content.background{
     z-index: 2;
     position: relative;
 }
+
