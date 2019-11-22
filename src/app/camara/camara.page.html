@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar class="barra_superior">
     <ion-buttons slot="start">
         <ion-back-button></ion-back-button>
       </ion-buttons>
@@ -7,11 +7,24 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
-    <div class="ion-text-left">
-        <ion-button (click)="TomarFoto()">Tomar foto</ion-button>    
-        <img *ngIf="image" [src]="image" alt="image">        
-    </div>
+<ion-content class="background">
+    <!-- Espacio para colocar los botones despues-->
+    <br>
+    <div class="espacio_camara" style="text-align:center"></div>
+    <!-- -->
+    
+    <ion-card-subtitle class="ion-text-center">
+      <!-- Tomar Foto-->
+      <ion-button (click)="TomarFoto()">
+        Tomar Foto <ion-icon name="md-camera"></ion-icon>
+      </ion-button>
+      <img *ngIf="image" [src]="image" alt="image">
+      &nbsp;
+      <!-- Subir Foto desde el Telefono-->
+      <ion-button color="success" (click)="TomarFoto()">
+        Subir Foto <ion-icon name="images"></ion-icon>
+      </ion-button>
+      <img *ngIf="image" [src]="image" alt="image">
+    </ion-card-subtitle><br>
 
 </ion-content>
