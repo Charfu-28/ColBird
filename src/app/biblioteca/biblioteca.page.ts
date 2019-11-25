@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
+import { Router, NavigationExtras } from '@angular/router'; //Importo Router y NavigationExtras para la navegacion entre ventanas
 
 @Component({
   selector: 'app-biblioteca',
@@ -9,7 +10,8 @@ export class BibliotecaPage implements OnInit {
 
   pajaros=[
     { //1
-      nombre: "1. Amazilla Coliazul",
+      id: "001",
+      nombre: "Amazilla Coliazul",
       imagen: "/assets/Imagenes/aves_pereira/Amazilia Verdiazul/Amazilia Verdiazul1.jpg",
       sonido: "/assets/Cantos/aves_pereira/Amazilia_Coliazul.mp3",
       nombre_cientifico: "Amazilia Saucerottei | The Steely-Vented Hummingbird",
@@ -17,7 +19,8 @@ export class BibliotecaPage implements OnInit {
     },
     
     { //2
-      nombre: "2. Amazilla Colirrufa",
+      id: "002",
+      nombre: "Amazilla Colirrufa",
       imagen: "/assets/Imagenes/aves_pereira/Amazilla Colirrufa/Amazilla Colirrufa1.jpg",
       sonido: "/assets/Cantos/aves_pereira/Amazilia_Colirrufa.mp3", 
       nombre_cientifico: "Amazilia tzacatl | Rufous-tailed hummingbird",
@@ -25,7 +28,8 @@ export class BibliotecaPage implements OnInit {
     },
 
     { //3
-      nombre: "3. Atrapamoscas Pechirrayado",
+      id: "003",
+      nombre: "Atrapamoscas Pechirrayado",
       imagen: "/assets/Imagenes/aves_pereira/Atrapamoscas Pechirrayado/Atrapamoscas Pechirrayado2.jpg",
       sonido: "/assets/Cantos/aves_pereira/Atrapamoscas Pechirrayado.mp3",
       nombre_cientifico: "Myiophobus fasciatus | The Bran-colored Flycatcher",
@@ -33,7 +37,8 @@ export class BibliotecaPage implements OnInit {
     },
 
     { //4
-      nombre: "4. Atrapamoscas Ganadero",
+      id: "004",
+      nombre: "Atrapamoscas Ganadero",
       imagen: "/assets/Imagenes/aves_pereira/Atrapamoscas Ganadero/Atrapamoscas Ganadero1.jpg",
       sonido: "/assets/Cantos/aves_pereira/Atrapamoscas Ganadero.mp3",
       nombre_cientifico: "Machetornis rixosa | Cattle Tyrant",
@@ -41,7 +46,8 @@ export class BibliotecaPage implements OnInit {
     },
 
     { //5
-      nombre: "5. Atrapamoscas Guardapuentes",
+      id: "005",
+      nombre: "Atrapamoscas Guardapuentes",
       imagen: "/assets/Imagenes/aves_pereira/Atrapamoscas Guardapuentes/Atrapamoscas Guardapuentes1.jpg",
       sonido: "/assets/Cantos/aves_pereira/Atrapamoscas Guardapuentes.mp3",
       nombre_cientifico: "Sayornis nigricans | The Black Phoebe",
@@ -49,7 +55,8 @@ export class BibliotecaPage implements OnInit {
     },
 
     { //6
-      nombre: "6. Atrapamoscas Ocráceo",
+      id: "006",
+      nombre: "Atrapamoscas Ocráceo",
       imagen: "/assets/Imagenes/aves_pereira/Atrapamoscas Ocraceo/Atrapamoscas Ocraceo1.jpg",
       sonido: "/assets/Cantos/aves_pereira/Atrapamoscas Ocraceo.mp3",
       nombre_cientifico: "Mionectes oleagineus | The Ochre-bellied Flycatcher",
@@ -57,7 +64,8 @@ export class BibliotecaPage implements OnInit {
     },
 
     { //7
-      nombre: "7. Atrapamoscas Oriental",
+      id: "007",
+      nombre: "Atrapamoscas Oriental",
       imagen: "/assets/Imagenes/aves_pereira/Atrapamoscas Oriental/Atrapamoscas Oriental1.jpg",
       sonido: "/assets/Cantos/aves_pereira/Atrapamoscas Oriental.mp3",
       nombre_cientifico: "Contopus virens | The Eastern Wood-pewee",
@@ -65,7 +73,8 @@ export class BibliotecaPage implements OnInit {
     },
 
     { //8
-      nombre: "8. Atrapamoscas Verdoso",
+      id: "008",
+      nombre: "Atrapamoscas Verdoso",
       imagen: "/assets/Imagenes/aves_pereira/Atrapamoscas Verdoso/Atrapamoscas Verdoso1.jpg",
       sonido: "/assets/Cantos/aves_pereira/Atrapamoscas Verdoso.mp3",
       nombre_cientifico: "Empidonax virescens|Acadian Flycatcher",
@@ -73,7 +82,8 @@ export class BibliotecaPage implements OnInit {
     },
 
     { //9
-      nombre: "9. Barranquero Andino",
+      id: "009",
+      nombre: "Barranquero Andino",
       imagen: "/assets/Imagenes/aves_pereira/Barranquero Andino/Barranquero Andino4.jpg",
       sonido: "/assets/Cantos/aves_pereira/Barranquero Andino.mp3",
       nombre_cientifico: "Momotus aequatorialis | Andean Motmot",
@@ -81,7 +91,8 @@ export class BibliotecaPage implements OnInit {
     },
 
     { //10
-      nombre: "10. Batará Carcajada",
+      id: "010",
+      nombre: "Batará Carcajada",
       imagen: "/assets/Imagenes/aves_pereira/Batara Carcajada/Batara Carcajada2.jpg",
       sonido: "/assets/Cantos/aves_pereira/Batara Carcajada.mp3",
       nombre_cientifico: "Thamnophilus multistriatus| Bar-crested Antshrike",
@@ -89,7 +100,8 @@ export class BibliotecaPage implements OnInit {
     },
 
     { //11
-      nombre: "11. Batará Mayor",
+      id: "011",
+      nombre: "Batará Mayor",
       imagen: "/assets/Imagenes/aves_pereira/Batara Mayor/Batara Mayor2.jpg",
       sonido: "/assets/Cantos/aves_pereira/Batara Mayor.mp3",
       nombre_cientifico: "Taraba major | The Great Antshrike",
@@ -97,7 +109,8 @@ export class BibliotecaPage implements OnInit {
     },
 
     { //12
-      nombre: "12. Batará Occidental",
+      id: "012",
+      nombre: "Batará Occidental",
       imagen: "/assets/Imagenes/aves_pereira/Batara Occidental/Batara Occidental1.jpg",
       sonido: "/assets/Cantos/aves_pereira/Batara Occidental.mp3",
       nombre_cientifico: "Thamnophilus atrinucha | Western Slaty-Antshrike",
@@ -105,7 +118,8 @@ export class BibliotecaPage implements OnInit {
     },
 
     { //13
-      nombre: "13. Bichofué Gritón",
+      id: "013",
+      nombre: "Bichofué Gritón",
       imagen: "/assets/Imagenes/aves_pereira/Bichofue Griton/Bichofué Gritón2.jpg",
       sonido: "/assets/Cantos/aves_pereira/Bichofue Griton.mp3",
       nombre_cientifico: "Pitangus sulphuratus | Great Kiskadee",
@@ -113,7 +127,8 @@ export class BibliotecaPage implements OnInit {
     },
 
     { //14
-      nombre: "14. Carpintero Buchipecoso",
+      id: "014",
+      nombre: "Carpintero Buchipecoso",
       imagen: "/assets/Imagenes/aves_pereira/Carpintero Buchipecoso/Carpintero Buchipecoso1.jpg",
       sonido: "/assets/Cantos/aves_pereira/Carpintero Buchipecoso.mp3",
       nombre_cientifico: "Colaptes punctigula | Spot-breasted Woodpecker",
@@ -121,7 +136,8 @@ export class BibliotecaPage implements OnInit {
     },
 
     { //15
-      nombre: "15. Carpintero Cariblanco",
+      id: "015",
+      nombre: "Carpintero Cariblanco",
       imagen: "/assets/Imagenes/aves_pereira/Carpintero Cariblanco/Carpintero Cariblanco1.jpg",
       sonido: "/assets/Cantos/aves_pereira/Carpintero Cariblanco.mp3",
       nombre_cientifico: "Colaptes rubiginosus | Golden-olive Woodpecker",
@@ -129,7 +145,8 @@ export class BibliotecaPage implements OnInit {
     },
 
     { //16
-      nombre: "16. Carpintero de los Robles",
+      id: "016",
+      nombre: "Carpintero de los Robles",
       imagen: "/assets/Imagenes/aves_pereira/Carpintero de los Robles/Carpintero de los Robles2.jpg",
       sonido: "/assets/Cantos/aves_pereira/Carpintero de los Robles.mp3",
       nombre_cientifico: "Melanerpes formicivorus | The Acorn Woodpecker",
@@ -137,7 +154,8 @@ export class BibliotecaPage implements OnInit {
     },
 
     { //17
-      nombre: "17. Carpintero Habado",
+      id: "017",
+      nombre: "Carpintero Habado",
       imagen: "/assets/Imagenes/aves_pereira/Carpintero Habado/Carpintero Habado2.jpg",
       sonido: "/assets/Cantos/aves_pereira/Carpintero Habado.mp3",
       nombre_cientifico: "Melanerpes rubricapillus | Red-crowned Woodpecker",
@@ -145,7 +163,8 @@ export class BibliotecaPage implements OnInit {
     },
 
     { //18
-      nombre: "18. Carpintero Real",
+      id: "018",
+      nombre: "Carpintero Real",
       imagen: "/assets/Imagenes/aves_pereira/Carpintero Real/Carpintero Real1.jpg",
       sonido: "/assets/Cantos/aves_pereira/Carpintero Real.mp3",
       nombre_cientifico: "Dryocopus lineatus | Lineated Woodpecker",
@@ -153,7 +172,8 @@ export class BibliotecaPage implements OnInit {
     },
 
     { //19
-      nombre: "19. Chamón Parásito",
+      id: "019",
+      nombre: "Chamón Parásito",
       imagen: "/assets/Imagenes/aves_pereira/Chamon Parasito/Chamon Parasito1.jpg",
       sonido: "/assets/Cantos/aves_pereira/Chamon Parasito.mp3",
       nombre_cientifico: "Molothrus bonariensis | The Shiny Cowbird ",
@@ -161,7 +181,8 @@ export class BibliotecaPage implements OnInit {
     },
 
     { //20
-      nombre: "20. Colibrí Cola de Raqueta",
+      id: "020",
+      nombre: "Colibrí Cola de Raqueta",
       imagen: "/assets/Imagenes/aves_pereira/Colibri Cola de Raqueta/Colibri Cola de Raqueta2.jpg",
       sonido: "/assets/Cantos/aves_pereira/Colibri Cola de Raqueta.mp3",
       nombre_cientifico: "Ocreatus Underwoodii | The Booted Racket-tail",
@@ -169,7 +190,8 @@ export class BibliotecaPage implements OnInit {
     },
 
     { //21
-      nombre: "21. Colibrí de Bufón",
+      id: "021",
+      nombre: "Colibrí de Bufón",
       imagen: "/assets/Imagenes/aves_pereira/Colibri de Bufon/Colibri de Bufon1.jpg",
       sonido: "/assets/Cantos/aves_pereira/Colibri de Bufon.mp3",
       nombre_cientifico: "Chalybura Boffonii | The White-vented Plumeleteer",
@@ -177,7 +199,8 @@ export class BibliotecaPage implements OnInit {
     },
 
     { //22
-      nombre: "22. Colibrí Collarejo",
+      id: "022",
+      nombre: "Colibrí Collarejo",
       imagen: "/assets/Imagenes/aves_pereira/Colibri Collarejo/Colibri Collarejo2.jpg",
       sonido: "/assets/Cantos/aves_pereira/Colibri Collarejo.mp3",
       nombre_cientifico: "Florisuga mellivora | White-Necked Jacobin",
@@ -185,7 +208,8 @@ export class BibliotecaPage implements OnInit {
     },
 
     { //23
-      nombre: "23. Elaenia Copetona",
+      id: "023",
+      nombre: "Elaenia Copetona",
       imagen: "/assets/Imagenes/aves_pereira/Elaenia Copetona/Elaenia Copetona3.jpg",
       sonido: "/assets/Cantos/aves_pereira/Elaenia Copetona.mp3",
       nombre_cientifico: "Elaenia flavogaster | Yellow-bellied Elaenia",
@@ -193,7 +217,8 @@ export class BibliotecaPage implements OnInit {
     },
 
     { //24
-      nombre: "24. Ermitaño Verde",
+      id: "024",
+      nombre: "Ermitaño Verde",
       imagen: "/assets/Imagenes/aves_pereira/Ermitanio Verde/Ermitanio Verde1.jpg",
       sonido: "/assets/Cantos/aves_pereira/Ermitanio Verde.mp3",
       nombre_cientifico: "Phaethornis guy | The Green Hermit",
@@ -201,7 +226,8 @@ export class BibliotecaPage implements OnInit {
     },
 
     { //25
-      nombre: "25. Esmeralda Occidental",
+      id: "025",
+      nombre: "Esmeralda Occidental",
       imagen: "/assets/Imagenes/aves_pereira/Esmeralda Occidental/Esmeralda Occidental1.jpg",
       sonido: "/assets/Cantos/aves_pereira/Esmeralda Occidental.mp3",
       nombre_cientifico: "Chlorostilbon Melanorhynchus | Western Emerald",
@@ -283,16 +309,20 @@ export class BibliotecaPage implements OnInit {
     }
   ]
 
-  canto(src)
-  {
-    console.log(src);
-    let canto = new Audio();
-    canto.src = src;
-    canto.load();
-    canto.play();
-  }
+  
+  //Agrego al constructor el Router
+  constructor(private router: Router) { }
 
-  constructor() { }
+  //Envio como JSON el array de los pajaros con la posicion donde se dio click y que se 
+  //muestre en la vista biblioteca-info
+  ave_info(i: any) {
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        special: JSON.stringify(this.pajaros[i])
+      }
+    };
+    this.router.navigate(['biblioteca-info'], navigationExtras);
+  }
 
   ngOnInit() {
   }

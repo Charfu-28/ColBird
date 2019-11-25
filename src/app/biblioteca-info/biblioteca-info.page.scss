@@ -1,0 +1,30 @@
+ion-toolbar.barra_biblioteca {
+    --background: #99B83C;
+    --border-color: #A8B17F;
+    --border-style: solid;
+    --border-width: thin;
+    --color: white;
+    --opacity: 1;
+}
+
+ion-item.fondo {
+    --background: url('/assets/img/layer.png') 0 0/100% 100%;
+}
+
+ion-card-header.barra_ave {
+    --background: #57a639;
+}
+
+.descripcion_ave {
+    padding: 5px;
+    margin: 5px;
+    background-color: #f0d148;
+    border: solid 0.5px rgb(116, 112, 112);
+    border-radius: 30px 15px 30px;
+    color: black;
+}
+
+ion-avatar {
+    max-width: 40px;
+    max-height: 40px;
+}

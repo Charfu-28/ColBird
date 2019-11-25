@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar class="barra_biblioteca">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title style="text-align:center">
+      {{pajaros.nombre}} 
+    </ion-title>
+    <ion-buttons slot="end">
+    <ion-avatar>
+      <ion-img [src]="pajaros.imagen"></ion-img>
+    </ion-avatar>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item class="fondo">
+    <ion-card color="light">
+        <ion-card-header class="barra_ave">
+          <ion-card-title color="primary">
+            <div [innerHTML]="pajaros.nombre_cientifico" style="text-align:center"></div>
+          </ion-card-title>
+        </ion-card-header>
+        <ion-img [src]="pajaros.imagen"></ion-img>
+        <!-- Carrusel de Imagenes-->
+
+        <!-- -->
+        <!-- Nombre Cientifico e Ingles-->
+        <br>
+        <div class="descripcion_ave" style="text-align:center">Descripción</div>
+        <ion-card-content>
+          <div [innerHTML]="pajaros.contenido" class="ion-text-justify"></div>
+        </ion-card-content>
+        <ion-card-subtitle class="ion-text-center">
+          <ion-button (click)="canto(pajaros.sonido)">
+            Canto <ion-icon name="musical-note"></ion-icon>                
+          </ion-button>
+          <ion-button (click)="canto(pajaros.sonido)">
+            Ubicación <ion-icon name="pin"></ion-icon>                
+          </ion-button>              
+        </ion-card-subtitle><br>
+        </ion-card>
+  </ion-item>
+</ion-content>

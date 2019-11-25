@@ -11,7 +11,7 @@
 
 <ion-content>
     <ion-list>
-      <ion-item class="fondo" *ngFor ="let pajaro of pajaros">
+      <ion-item class="fondo" *ngFor ="let pajaro of pajaros; let i = index"> <!-- Agrego let i = index para saber la posicion donde la persona dio click-->
         <ion-card color="light">
           <ion-card-header class="barra_ave">
             <ion-card-title color="primary"><div [innerHTML]="pajaro.nombre"></div></ion-card-title>            
@@ -19,27 +19,13 @@
           <ion-img [src]="pajaro.imagen"></ion-img>
           <!-- Nombre Cientifico e Ingles-->
           <br><div [innerHTML]="pajaro.nombre_cientifico" class="nombre_cientifico" style="text-align:center"></div>
-          <!-- -->
-          <ion-card-content>
-            <div [innerHTML]="pajaro.contenido" class="ion-text-justify"></div>
-          </ion-card-content>
           <!-- BOTON VER MAS-->
+          <!--{{i}}  Envio esa posicion a la funcion ave_info()-->
           <ion-card-subtitle class="ion-text-center">
-            <ion-button (click)="canto(pajaro.sonido)">
+            <ion-button (click)="ave_info(i)">
               Ver Mas <ion-icon name="add-circle"></ion-icon>
             </ion-button>
           </ion-card-subtitle><br>
-          <!-- -->
-          <!--
-          <ion-card-subtitle class="ion-text-center">
-            <ion-button (click)="canto(pajaro.sonido)">
-              Canto <ion-icon name="musical-note"></ion-icon>                
-            </ion-button>
-            <ion-button (click)="canto(pajaro.sonido)">
-              Ubicación <ion-icon name="pin"></ion-icon>                
-              </ion-button>              
-            </ion-card-subtitle><br>
-            -->
         </ion-card>
       </ion-item>
     </ion-list>
