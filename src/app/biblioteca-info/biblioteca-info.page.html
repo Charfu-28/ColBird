@@ -22,16 +22,28 @@
             <div [innerHTML]="pajaros.nombre_cientifico" style="text-align:center"></div>
           </ion-card-title>
         </ion-card-header>
+        
         <ion-img [src]="pajaros.imagen"></ion-img>
-        <!-- Carrusel de Imagenes-->
-
-        <!-- -->
-        <!-- Nombre Cientifico e Ingles-->
+        <!-- Descripcion-->
         <br>
         <div class="descripcion_ave" style="text-align:center">Descripción</div>
         <ion-card-content>
           <div [innerHTML]="pajaros.contenido" class="ion-text-justify"></div>
         </ion-card-content>
+        <br>
+        <!-- Carrusel de Imagenes-->
+        <div class="descripcion_ave" style="text-align:center">Imágenes</div>
+        <ion-slides pager='true'>
+          <ion-slide *ngFor="let i of pajaros.imagenes">
+            <ion-card mode="ios">
+              <img [src]="i">
+            </ion-card>
+          </ion-slide>
+          
+        </ion-slides>
+        <br><br>
+        <!-- -->
+        <!-- Botones Extra-->
         <ion-card-subtitle class="ion-text-center">
           <ion-button (click)="canto(pajaros.sonido)">
             Canto <ion-icon name="musical-note"></ion-icon>                
