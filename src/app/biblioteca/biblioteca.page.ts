@@ -389,7 +389,7 @@ export class BibliotecaPage implements OnInit {
       nombre:"Atrapamoscas maculado",
       imagen : "/assets/Imagenes/Atrapamoscas.jpg",
       sonido : "/assets/Cantos/Atrapa_Maculado.mp3",
-      nombre_cientifico: "El mas perro",
+      nombre_cientifico: "NN",
       contenido : "Atrapamoscas grande y fuertemente estriado, con frecuencia ruidoso. Su nombre Myiodynastes significa señor de las moscas, derivado de la raíces griegas muia = mosca y dynástes = señor."
     },
 

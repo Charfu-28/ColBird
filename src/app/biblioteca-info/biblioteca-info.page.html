@@ -17,41 +17,42 @@
 <ion-content>
   <ion-item class="fondo">
     <ion-card color="light">
-        <ion-card-header class="barra_ave">
-          <ion-card-title color="primary">
-            <div [innerHTML]="pajaros.nombre_cientifico" style="text-align:center"></div>
-          </ion-card-title>
-        </ion-card-header>
-        
-        <ion-img [src]="pajaros.imagen"></ion-img>
-        <!-- Descripcion-->
-        <br>
-        <div class="descripcion_ave" style="text-align:center">Descripción</div>
+      <ion-card-header class="barra_ave">
+        <ion-card-title color="primary">
+          <div [innerHTML]="pajaros.nombre_cientifico" style="text-align:center"></div>
+        </ion-card-title>
+      </ion-card-header>
+      
+      <ion-img [src]="pajaros.imagen"></ion-img>
+      <!-- Descripcion-->
+      <br>
+      <div class="descripcion_ave" style="text-align:center">Descripción</div>
         <ion-card-content>
           <div [innerHTML]="pajaros.contenido" class="ion-text-justify"></div>
         </ion-card-content>
-        <br>
-        <!-- Carrusel de Imagenes-->
-        <div class="descripcion_ave" style="text-align:center">Imágenes</div>
-        <ion-slides pager='true'>
-          <ion-slide *ngFor="let i of pajaros.imagenes">
-            <ion-card mode="ios">
-              <img [src]="i">
-            </ion-card>
-          </ion-slide>
-          
-        </ion-slides>
-        <br><br>
-        <!-- -->
-        <!-- Botones Extra-->
-        <ion-card-subtitle class="ion-text-center">
-          <ion-button (click)="canto(pajaros.sonido)">
-            Canto <ion-icon name="musical-note"></ion-icon>                
-          </ion-button>
-          <ion-button (click)="canto(pajaros.sonido)">
-            Ubicación <ion-icon name="pin"></ion-icon>                
-          </ion-button>              
-        </ion-card-subtitle><br>
-        </ion-card>
+      <br>
+      <!-- Carrusel de Imagenes-->
+      <div class="descripcion_ave" style="text-align:center">Imágenes</div>
+      <ion-slides pager='true'>
+        <ion-slide *ngFor="let i of pajaros.imagenes">
+          <ion-card mode="ios">
+            <img [src]="i">
+          </ion-card>
+        </ion-slide>        
+      </ion-slides>
+      <br><br>
+      <!-- -->
+      <!-- Botones Extra-->
+      <ion-card-subtitle class="ion-text-center">
+        <ion-button (click)="cantoHermoso(pajaros.sonido)">Canto
+          <ion-icon *ngIf="cambio" name="pause" item-end style="margin: 8px"></ion-icon>
+          <ion-icon *ngIf="!cambio" name="play" item-end style="margin: 8px"></ion-icon>
+        </ion-button>
+
+        <ion-button (click)="leafletMap()">
+          Ubicación <ion-icon style="margin: 8px" name="pin"></ion-icon>                
+        </ion-button>
+      </ion-card-subtitle><br>
+      </ion-card>
   </ion-item>
 </ion-content>

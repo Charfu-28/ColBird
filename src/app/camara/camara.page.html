@@ -13,9 +13,17 @@
     <div class="espacio_camara" style="text-align:center"></div>
     <!-- -->
     
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" *ngFor="let photo of photoService.photos">
+          <img [src]="photo.data" />
+        </ion-col>
+      </ion-row>
+    </ion-grid>  
+
     <ion-card-subtitle class="ion-text-center">
       <!-- Tomar Foto-->
-      <ion-button (click)="TomarFoto()">
+      <ion-button (click)="photoService.TomarFoto()">
         Tomar Foto <ion-icon name="md-camera"></ion-icon>
       </ion-button>
       <img *ngIf="image" [src]="image" alt="image">

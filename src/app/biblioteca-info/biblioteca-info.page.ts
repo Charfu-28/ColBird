@@ -8,14 +8,32 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class BibliotecaInfoPage implements OnInit {
 
-  canto(src) {
-    console.log(src);
-    let canto = new Audio();
-    canto.src = src;
-    canto.load();
-    canto.play();
+  canto: HTMLAudioElement;
+  reproduciendo: boolean=false;
+  sonidoCargado: boolean=false;
+  cambio: boolean;
+
+  cantoHermoso(src)
+  {
+    if (this.sonidoCargado==false){
+      this.canto = new Audio();
+      this.canto.load();
+      this.sonidoCargado=true;
+    }
+    if (this.reproduciendo==false){      
+      this.canto.src = src;
+      this.canto.play();
+      this.reproduciendo=true;
+      this.cambio = true;
+    }
+    else
+    {
+      this.canto.pause();
+      this.reproduciendo=false;
+      this.cambio = false;
+    }
   }
-  
+
   //En pajaros recibo el JSON que viene de la vista biblioteca
   pajaros: any;
 
@@ -28,8 +46,6 @@ export class BibliotecaInfoPage implements OnInit {
     });
   }
 
-  ngOnInit() {
-    
-  }
+  ngOnInit() {}
 
 }
